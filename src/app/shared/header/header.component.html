@@ -1,0 +1,13 @@
+<header class="bg-primary text-white p-4 shadow-md">
+    <nav class="container mx-auto flex justify-between items-center">
+        <a routerLink="/" class="text-2x1 font-bold">Calma Já</a>
+        <ul class="flex space-x-4">
+            <li><a routerLink="/feed" class="hover:underline">Feed</a></li>
+            <li><a routerLink="/post/create" class="hover:underline">Novo Post</a></li>
+            <li *ngIf="isAuthenticated$ | async"><a routerLink="/profile" class="hover:underline">Perfil</a></li>
+            <li *ngIf="!(isAuthenticated$ | async)"><a routerLink="/login" class="hover:underline">Login</a></li>
+            <li *ngIf="!(isAuthenticated$ | async)"><a routerLink="/register" class="hover:underline">Cadastrar</a></li>
+            <li *ngIf="isAuthenticated$ | async"><button (click)="logout()" class="hover:underline">Sair</button></li>
+        </ul>
+    </nav>
+</header>
